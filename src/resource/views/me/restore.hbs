@@ -1,0 +1,150 @@
+<div class="article-body">
+    <header class="article-header">
+        <h3 class="name-page">Product</h3>
+        <div class="article-header_body">
+            <div class="article-noti">
+                <i class="fa-regular fa-bell icon article-noti_icon">
+                    <div class="article-noti_status"></div>
+                </i>
+            </div>
+            <a class="btn btn_newProject" href="/product/create">
+                <i class="fa-solid fa-plus icon"></i>
+                New Product
+            </a>
+            <img class="user_avatar" src="/imgs/userAvatar/user1.gif"></img>
+        </div>
+    </header>
+
+    <form class="row product_manage mt-4" action="/product/handleForm" id="formMain" method="post">
+        <div class="product_article-header">
+            <h2 class="summary_title">List products deleted ({{deletedCount}})</h2>
+            <div class="checkbox-group">
+                <div class="checkbox-group_main">
+                    <input name="checkbox" type="checkbox" class="checkbox" id="checkboxAll" value="checkAll">
+                    <label for="checkbox" class="form-label checkbox-label">Check All</label>
+                </div>
+                <div class="interact-link">
+                    <a href="#" class="restoreAll interact-items">Restore all</a>
+                    <a href="#" class="removeAll interact-items">Remove all</a>
+                </div>
+            </div>
+        </div>
+        <ul class="list_products">
+            {{#each products}}
+            <li class="product_item">
+                <div class="product_link">
+                    <div class="product_info">
+                        <div class="product_info-head">
+                            <input name="checkboxItems" type="checkbox" class="checkboxItems" value="{{this._id}}">
+                        </div>
+                        <div class="product_info-main">
+                            <h2 class="product_name">{{name}}</h2>
+                            <p class="product_description">{{description}}</p>
+                        </div>
+                    </div>
+                    <p class="product_debut">15 month ago</p>
+                    <div class="product_button">
+                        <a class="btn product_update btn-restore" href="" data-id="{{this._id}}">Restore</a>
+                        <a class="btn product_remove" data-id="{{this._id}}" >Delete</a>
+                    </div>
+                </div>
+            </li>
+            {{else}}
+                <p class="product_description text-center"> Trash empty.
+                    <a href="/product" class="show_all_products">Back</a>
+                </p>
+            {{/each}}
+        </ul>
+    </form>
+</div>
+
+{{!-- design modal by -hin --}}
+
+<div class="myModal" id="myModal">
+    <div class="myModal-main">
+        <div class="myModal-header">
+            <h2 class="myModal-title">Xóa sản phẩm</h2>
+            <button type="button" class="btn-close" onclick="closeModal()"></button>
+        </div>
+        <div class="myModal-body">
+            <div class="myModal-description">Bạn chắc chắn xóa sản phẩm này ?</div>
+        </div>
+        <div class="myModal-button mt-4">
+            <button class="btn modal-close" onclick="closeModal()">Close</button>
+            <button class="btn btn-remove" onclick="DeleteReal()">Remove</button>
+        </div>
+    </div>
+    <div class="myOverlay" onclick="CloseModal()"></div>
+</div>
+
+
+<form id="formRestore" method="post">
+
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    const btnRestore = $('.btn-restore');
+    const productRemove = $('.product_remove')
+    const myModal = document.getElementById('myModal');
+    const checkboxAll = $('#checkboxAll');
+    const checkboxItems = $('.checkboxItems');
+    const btnRestoreAll = $('.restoreAll');
+    const btnRemoveAll = $('.removeAll');
+    const formMain = $('#formMain');
+
+    function showModal() {
+        myModal.style.display = 'block';
+    }
+
+    function closeModal() {
+        myModal.style.display = 'none';
+    }
+
+    var dataID;
+    const form = $('#formRestore');
+    // Restore product
+
+    btnRestore.click( function (e) {
+        e.preventDefault();
+        dataID = $(this).data('id');
+        form.attr('action', `/product/${dataID}/restore?_method=PATCH`);
+        form.submit();
+    })
+
+    // Delete real
+    productRemove.click(function (e) {
+        showModal();
+        dataID = $(this).data('id');
+    })
+
+    function DeleteReal() {
+        form.attr('action', `/product/${dataID}/force?_method=DELETE`);
+        form.submit();
+    }
+
+    // Checkbox interact
+    checkboxAll.change(function () {
+        const isChecked = $(this).prop('checked')
+        checkboxItems.prop('checked', isChecked)
+    })
+
+    checkboxItems.change(function () {
+        const isChecked = checkboxItems.length;
+        const total = $('.checkboxItems:checked').length;
+        checkboxAll.prop('checked', isChecked === total)
+    })
+
+    btnRestoreAll.click(function(e) {
+        e.preventDefault();
+        formMain.attr('action', `/product/handleForm/restore`)
+        formMain.submit();
+    })
+
+    // Remove all (soft deleted)
+    btnRemoveAll.click(function(e) {
+        e.preventDefault();
+        formMain.attr('action', `/product/handleForm/remove`);
+        formMain.submit();
+    })
+</script>

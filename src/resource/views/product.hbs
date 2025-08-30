@@ -1,0 +1,162 @@
+<div class="article-body">
+    <header class="article-header">
+        <h3 class="name-page">Product</h3>
+        <div class="article-header_body">
+            <div class="article-noti">
+                <i class="fa-regular fa-bell icon article-noti_icon">
+                    <div class="article-noti_status"></div>
+                </i>
+            </div>
+            <a class="btn btn_newProject" href="/product/create">
+                <i class="fa-solid fa-plus icon"></i>
+                New Product
+            </a>
+            <img class="user_avatar" src="/imgs/userAvatar/user1.gif"></img>
+        </div>
+    </header>
+    <div class="summary">
+        <div class="summary_card">
+            <div class="summary_card-header">
+                <div class="summary_card--icon">
+                    <i class="fa-solid fa-bars summary--icon"></i>
+                </div>
+            </div>
+            <div class="summary_card-body">
+                <h3 class="summary_card--title">Total products</h3>
+                <p class="summary_card--quantity">{{ productsTotal }}</p>
+                <p class="summary_card--time">from last month</p>
+            </div>
+        </div>
+
+        <div class="summary_card">
+            <div class="summary_card-header">
+                <div class="summary_card--icon">
+                    <i class="fa-solid fa-chart-line summary--icon"></i>
+                </div>
+            </div>
+            <div class="summary_card-body">
+                <h3 class="summary_card--title">Revenue</h3>
+                <p class="summary_card--quantity">+ 120 USD</p>
+                <p class="summary_card--time">from last month</p>
+            </div>
+        </div>
+
+        <div class="summary_card">
+            <div class="summary_card-header">
+                <div class="summary_card--icon">
+                    <i class="fa-solid fa-cart-shopping summary--icon"></i>
+                </div>
+            </div>
+            <div class="summary_card-body">
+                <h3 class="summary_card--title">Product sold</h3>
+                <p class="summary_card--quantity">1200</p>
+                <p class="summary_card--time">from last month</p>
+            </div>
+        </div>
+
+        <div class="summary_card">
+            <div class="summary_card-header">
+                <div class="summary_card--icon">
+                    <i class="fa-solid fa-money-bill-transfer summary--icon"></i>
+                </div>
+            </div>
+            <div class="summary_card-body">
+                <h3 class="summary_card--title">Total value</h3>
+                <p class="summary_card--quantity">+ 2M USD</p>
+                <p class="summary_card--time">from last week</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row product_manage mt-4">
+        <div class="product_article-header">
+            <h2 class="summary_title">List products
+                {{{sortable 'name' _sort}}}
+            </h2>
+            <a class="show_all_products" href="#">See all products</a>
+        </div>
+        <ul class="list_products">
+            {{#each products}}
+            <li class="product_item">
+                <div class="product_link">
+                    <div class="product_info">
+                        <div class="product_info-main">
+                            <h2 class="product_name">{{name}}</h2>
+                            <p class="product_description">{{description}}</p>
+                        </div>
+                    </div>
+                    <p class="product_debut">15 month ago</p>
+                    <div class="product_button">
+                        <a class="btn product_update" href="product/{{this._id}}/edit">Update</a>
+                        <a class="btn product_remove" data-id="{{this._id}}">Remove</a>
+                    </div>
+                </div>
+            </li>
+            {{else}}
+                <p class="product_description text-center">Bạn chưa tạo ra sản phẩm.
+                    <a href="/product/create" class="show_all_products">Tạo sản phẩm.</a>
+                </p>
+            {{/each}}
+        </ul>
+    </div>
+    <a class="trashBin_content" href="/me/restore">
+        <i class="fa-solid fa-trash trashBin-icon"></i>
+        Trash Bin ({{deletedCount}})
+    </a>
+</div>
+
+{{!-- design modal by -hin --}}
+
+<div class="myModal" id="myModal">
+    <div class="myModal-main">
+        <div class="myModal-header">
+            <h2 class="myModal-title">Xóa sản phẩm</h2>
+            <button type="button" class="btn-close" onclick="CloseModal()"></button>
+        </div>
+        <div class="myModal-body">
+            <div class="myModal-description">Bạn chắc chắn xóa sản phẩm này ?</div>
+        </div>
+        <div class="myModal-button mt-4">
+            <button class="btn modal-close" onclick="CloseModal()">Close</button>
+            <button class="btn btn-remove" onclick="RemoveProduct()">Remove</button>
+        </div>
+    </div>
+    <div class="myOverlay" onclick="CloseModal()"></div>
+</div>
+
+{{!-- form hidden --}}
+
+<form id="formDelete" method="post"></form>
+
+<script>
+    const myModal = document.getElementById('myModal');
+    const productRemove = document.querySelectorAll('.product_remove');
+    var dataId;
+    const form = document.getElementById('formDelete');
+
+    function showModal() {
+        myModal.style.display = 'block';
+    }
+
+    function closeModal() {
+        myModal.style.display = 'none';
+    }
+
+    function RemoveProduct() {
+        form.action = `/product/${dataId}?_method=DELETE`;
+        form.submit();
+    }
+
+    productRemove.forEach(function(remove) {
+        remove.addEventListener('click', function() {
+            myModal.style.display = 'block';
+            dataId = remove.getAttribute('data-id');      //Lay thuoc tinh id cua the a
+        })
+    })
+
+    function CloseModal() {
+        myModal.style.display = 'none'
+    }   
+
+
+</script>

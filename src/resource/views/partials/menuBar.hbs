@@ -1,0 +1,69 @@
+<div class="menu_bar">
+    <header class="header-menu">
+        <a href="/">
+            <img src="/imgs/store_logo.jpg" alt="" class="header-logo">
+        </a>
+        <h2 class="name-page">Technologies</h2>
+    </header>
+    <navbar class="menu-navbar">
+        <ul class="list_bar list-navbar">
+            <li class="list_items">
+                <a href="/" class="list_items--link">
+                    <i class="fa-regular fa-house icon icon-navbar"></i>
+                    Home
+                </a>
+            </li>
+            <li class="list_items">
+                <a href="/product" class="list_items--link">
+                    <i class="fa-regular fa-file icon icon-navbar"></i>
+                    Product
+                </a>
+            </li>
+            <li class="list_items">
+                <a href="/contact" class="list_items--link">
+                    <i class="fa-regular fa-address-book icon icon-navbar"></i>
+                    Contact
+                </a>
+            </li>
+            <li class="list_items">
+                <a href="/notification" class="list_items--link">
+                    <i class="fa-regular fa-bell icon icon-navbar"></i>
+                    Notifications
+                </a>
+            </li>
+
+            <li class="list_items">
+                <a href="/search" class="list_items--link" id="search">
+                    <i class="fa-solid fa-magnifying-glass icon icon-navbar"></i>
+                    Search
+                </a>
+            </li>
+        </ul>
+
+        <h3 class="list-name">Lastest message</h3>
+        <ul class="list_bar">
+            {{#loop 1 3 staffs}}
+            <li class="list_items">
+                <a href="/message/{{_id}}" class="quick--message--link">
+                    <img src="{{img}}" alt="" class="user_avatar">
+                    <div class="quick--message_body">
+                        <div class="quick--message-header">
+                            <h4 class="quick--message_user user_name">{{ name }}</h4>
+                            <p class="quick--message_time">3m</p>
+                            <span class="quick--message_status"></span>
+                        </div>
+                        <div class="quick--message-body">
+                            <p class="quick--message_content">Hey you check for m....</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+            {{/loop}}
+
+            <li class="list__items">
+                <a href="#" class="quick--message--link quick--message_all--link">See all message</a>
+            </li>
+        </ul>
+    </navbar>
+</div>

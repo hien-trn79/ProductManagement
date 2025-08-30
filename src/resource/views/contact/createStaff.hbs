@@ -1,0 +1,61 @@
+<div class="article-body">
+    <header class="article-header">
+        <h3 class="name-page">Contact</h3>
+        <div class="article-header_body">
+            <div class="article-noti">
+                <i class="fa-regular fa-bell icon article-noti_icon">
+                    <div class="article-noti_status"></div>
+                </i>
+            </div>
+            <a class="btn btn_newProject" href="/product/create">
+                <i class="fa-solid fa-plus icon"></i>
+                New Product
+            </a>
+            <img class="user_avatar" src="/imgs/userAvatar/user1.gif"></img>
+        </div>
+    </header>
+    
+    <h2 class="title">Add Staff</h2>
+    <form action="/contact/createStaff/:slug" id="form-1" class="mt-4" method="post">
+        <div class="form-group">
+            <label for="name" class="form-label">Name: </label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="position" class="form-label">Position: </label>
+            <input type="text" class="form-control" id="position" name="position">
+        </div>
+        <div class="form-group">
+            <label for="date" class="form-label">Date: </label>
+            <input type="text" class="form-control" id="date" name="date">
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label">Email: </label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="numberPhone" class="form-label">Number Phone: </label>
+            <input type="text" class="form-control" id="numberPhone" name="numberPhone">
+        </div>
+        <div class="form-group">
+            <label for="education" class="form-label">Education: </label>
+            <input type="text" class="form-control" id="education" name="education">
+        </div>
+        <div class="form-group">
+            <label for="professional" class="form-label">Professional: </label>
+            <input type="text" class="form-control" id="professional" name="professional">
+        </div>
+        <div class="form-group">
+            <label for="introduce" class="form-label">Introduce yourself: </label>
+            <textarea class="form-control" id="introduce" name="introduce"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="begin" class="form-label">Begin: </label>
+            <input type="text" class="form-control" id="begin" name="begin">
+        </div>
+
+        <div class="form-button mt-4 text-center">
+            <button class="btn btn-submit">Save</button>
+        </div>
+    </form>
+</div>

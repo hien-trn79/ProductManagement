@@ -1,0 +1,211 @@
+<div class="article-body">
+    <header class="article-header">
+        <h3 class="name-page">Message</h3>
+        <div class="article-header_body">
+            <div class="article-noti">
+                <i class="fa-regular fa-bell icon article-noti_icon">
+                    <div class="article-noti_status"></div>
+                </i>
+            </div>
+            <a class="btn btn_newProject" href="/product/create">
+                <i class="fa-solid fa-plus icon"></i>
+                New Product
+            </a>
+            <img class="user_avatar" src="/imgs/userAvatar/user1.gif"></img>
+        </div>
+    </header>
+    
+    <div class="section_message">
+        <article class="message-article">
+            <div class="message-header">
+                <div class="message_info--user">
+                    <img src="{{staff.img}}" alt="" class="user_avatar">
+                    <h2 class="user_name">{{ staff.name }}</h2>
+                </div>
+                <div class="meesage_setting">
+                    <div class="message_group">
+                        <i class="fa-solid fa-magnifying-glass message_search--icon"></i>
+                        <input type="text" class="message-input" placeholder="search_message">
+                    </div>
+                    <i class="fa-solid fa-gear message--icon"></i>
+                </div>
+            </div>
+            <div class="message-main">
+                <div class="message message_you">
+                    <div class="message_body">
+                        <img src="{{staff.img}}" class="message_user user_avatar"></img>
+                        <div class="message_content">Hi boss. Have a good day !</div>
+                    </div>
+                    <div class="message_desctiption">
+                        <div class="message_time"><span class="time">10:00</span> PM</div>
+                        <div class="message_feel">
+                            <i class="fa-solid fa-heart message_feel--icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message message_you">
+                    <div class="message_body">
+                        <img src="{{staff.img}}" class="message_user user_avatar"></img>
+                        <div class="message_content">I just sent you a detailed file of upcoming projects.</div>
+                    </div>
+                    <div class="message_desctiption">
+                        <div class="message_time"><span class="time">10:00</span> PM</div>
+                        <div class="message_feel">
+                            <i class="fa-solid fa-heart message_feel--icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message message_me">
+                    <div class="message_body">
+                        <img src="/imgs/userAvatar/user1.gif" class="message_user user_avatar"></img>
+                        <div class="message_content">Okey. I recieved it. Thank you!</div>
+                    </div>
+                    <div class="message_desctiption">
+                        <div class="message_time"><span class="time">10:00</span> PM</div>
+                        <div class="message_feel">
+                            <i class="fa-solid fa-heart message_feel--icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="message message_you">
+                    <div class="message_body">
+                        <img src="{{staff.img}}" class="message_user user_avatar"></img>
+                        <div class="message_content">Hi boss. Have a good day !</div>
+                    </div>
+                    <div class="message_desctiption">
+                        <div class="message_time"><span class="time">10:00</span> PM</div>
+                        <div class="message_feel">
+                            <i class="fa-solid fa-heart message_feel--icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message message_you">
+                    <div class="message_body">
+                        <img src="{{staff.img}}" class="message_user user_avatar"></img>
+                        <div class="message_content">I just sent you a detailed file of upcoming projects.</div>
+                    </div>
+                    <div class="message_desctiption">
+                        <div class="message_time"><span class="time">10:00</span> PM</div>
+                        <div class="message_feel">
+                            <i class="fa-solid fa-heart message_feel--icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message message_me">
+                    <div class="message_body">
+                        <img src="/imgs/userAvatar/user1.gif" class="message_user user_avatar"></img>
+                        <div class="message_content">Okey. I recieved it. Thank you!</div>
+                    </div>
+                    <div class="message_desctiption">
+                        <div class="message_time"><span class="time">10:00</span> PM</div>
+                        <div class="message_feel">
+                            <i class="fa-solid fa-heart message_feel--icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="message-footer">
+                <input type="text" class="form-control message-input" placeholder="Type a message">
+                <div class="section_message--icon">
+                    <i class="fa-solid fa-link message_link--icon"></i>
+                    <i class="fa-regular fa-face-smile message_link--icon"></i>
+                    <div class="message_button">
+                        <button class="btn-send"><i class="fa-solid fa-paper-plane message_link--icon"></i></button>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <aside class="message-aside">
+            <div class="aside_message_info-header">
+                <div class="aside_message-header">
+                    <img src="{{staff.img}}" alt="" class="aside_message-user user_avatar">
+                    <h2 class="user_name">{{ staff.name }}</h2>
+                    <p class="message_time time_online">25 minutes ago </p>
+                </div>
+                <div class="aside_message-icon mt-3">
+                    <i class="fa-solid fa-phone message--icon"></i>
+                    <i class="fa-solid fa-video message--icon"></i>
+                    <i class="fa-solid fa-envelope message--icon"></i>
+                    <i class="fa-solid fa-ellipsis message--icon"></i>
+                </div>
+                <div class="aside_message-main mt-3">
+                    <p class="user_info">
+                        <i class="fa-solid fa-phone message--icon"></i> 
+                        {{ staff.numberPhone }}
+                    </p>
+                    <p class="user_info">
+                        <i class="fa-solid fa-envelope message--icon"></i> 
+                        {{ staff.email }}
+                    </p>
+                    <p class="user_info">
+                        <i class="fa-solid fa-suitcase message--icon"></i> 
+                        {{ staff.professional }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="aside_message_info-main">
+                <div class="message_info-main-header">
+                    <h2 class="message--title">Media</h2>
+                    <div class="message_options">
+                        <button class="btn_options option_active">Files</button>
+                        <button class="btn_options">Image</button>
+                        <button class="btn_options">Link</button>
+                    </div>
+                </div>
+                <div class="message_info-main-body">
+                    <ul class="media_list">
+                        <li class="media_items">
+                            <img class="media_items-img" src="/imgs/file_img.jpg"></img>
+                            <div class="media_items-body">
+                                <h2 class="media_items--title">Connecting your tech.pdf</h2>
+                                <p class="media_items--size">2.4MB</p>
+                            </div>
+                            <div class="media_items-last">
+                                <button class="btn-download"><i class="fa-solid fa-download message--icon"></i></button>
+                            </div>
+                        </li>
+
+                        <li class="media_items">
+                            <img class="media_items-img" src="/imgs/file_img.jpg"></img>
+                            <div class="media_items-body">
+                                <h2 class="media_items--title">Connecting your tech.pdf</h2>
+                                <p class="media_items--size">2.4MB</p>
+                            </div>
+                            <div class="media_items-last">
+                                <button class="btn-download"><i class="fa-solid fa-download message--icon"></i></button>
+                            </div>
+                        </li>
+
+                        <li class="media_items">
+                            <img class="media_items-img" src="/imgs/file_img.jpg"></img>
+                            <div class="media_items-body">
+                                <h2 class="media_items--title">Connecting your tech.pdf</h2>
+                                <p class="media_items--size">2.4MB</p>
+                            </div>
+                            <div class="media_items-last">
+                                <button class="btn-download"><i class="fa-solid fa-download message--icon"></i></button>
+                            </div>
+                        </li>
+
+                        <li class="media_items">
+                            <img class="media_items-img" src="/imgs/file_img.jpg"></img>
+                            <div class="media_items-body">
+                                <h2 class="media_items--title">Connecting your tech.pdf</h2>
+                                <p class="media_items--size">2.4MB</p>
+                            </div>
+                            <div class="media_items-last">
+                                <button class="btn-download"><i class="fa-solid fa-download message--icon"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</div>

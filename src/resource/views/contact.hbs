@@ -1,0 +1,59 @@
+<div class="article-body">
+    <header class="article-header">
+        <h3 class="name-page">Contact</h3>
+        <div class="article-header_body">
+            <div class="article-noti">
+                <i class="fa-regular fa-bell icon article-noti_icon">
+                    <div class="article-noti_status"></div>
+                </i>
+            </div>
+            <a class="btn btn_newProject" href="/product/create">
+                <i class="fa-solid fa-plus icon"></i>
+                New Product
+            </a>
+            <img class="user_avatar" src="/imgs/userAvatar/user1.gif"></img>
+        </div>
+    </header>
+    <a class="btn btn_add_staff btn_newProject" href="/contact/createStaff">Add staffs</a>
+    <div class="staff-article_body">
+        <ul class="staff_list">
+            {{#each staffs}}
+            <li class="staff_items">
+                <div class="card_staff-header">
+                    <img src="{{img}}" alt="" class="staff_img">
+                    <div class="staff_info_main">
+                        <h2 class="staff_name">{{ name }}</h2>
+                        <p class="staff_position">{{ position }}</p>
+                        <p class="staff_date">{{date}}</p>
+                    </div>
+                </div>
+
+                <div class="card_staff-body">
+                    <div class="staff_info-body">
+                        <p class="staff_email staff_description">
+                            <i class="fa-solid fa-envelope staff-icon"></i>
+                            {{email}}
+                        </p>
+                        <p class="staff_numberPhone staff_description">
+                            <i class="fa-solid fa-phone staff-icon"></i>
+                            {{numberPhone}}
+                        </p>
+                        <p class="staff_education staff_description">
+                            <i class="fa-solid fa-building-user staff-icon"></i>
+                            {{education}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card_button">
+                    <a href="/contact/{{name}}" class="staff-link">View Details</a>
+                    <div class="staff-link_list">
+                        <i class="fa-solid fa-ellipsis-vertical staff-link_list--icon"></i>
+                    </div>
+                </div>
+            </li>
+
+            {{/each}}
+        </ul>
+    </div>
+</div>

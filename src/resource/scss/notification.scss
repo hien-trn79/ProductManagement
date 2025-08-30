@@ -1,0 +1,123 @@
+.article-main {
+    display: grid;
+    grid-template-areas: 'left right';
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.article_left, .article_right {
+    padding: 24px;
+    border-radius: 7px;
+    background-color: white;
+}
+
+.article--title {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 500;
+    letter-spacing: 0.9px;
+    padding: 8px 4px;
+}
+
+.section_notification {
+    padding: 8px;
+    margin-bottom: 32px;
+}
+
+.section_notification--title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #777;
+    padding: 4px 0px;
+}
+
+.notification {
+    display: flex;
+    padding: 10px 0px;
+    border-bottom: 1px solid #ccc;
+}
+
+.notification:hover {
+    background-color: #cccccc2e;
+    cursor: pointer;
+}
+
+.notification-header {
+    display: flex;
+    align-items: flex-start;
+    padding: 0px 12px;
+}
+
+.notification-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    box-shadow: 2px rgba(0,0,0, 0.08);
+}
+
+.notification-body {
+    padding: 0px 8px;
+    flex: 1;
+}
+
+.notification--title {
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: bold;
+    padding: 3px 0px;
+    margin: 0;
+}
+
+.notification--description {
+    font-size: 1.3rem;
+    color: #777;
+    font-weight: 400;
+    padding: 8px 4px;
+}
+
+.notification--time {
+    font-size: 1.2rem;
+    color: #ccc;
+    padding: 4px;
+}
+
+.notification--time-icon {
+    font-size: 1.1rem;
+    margin: 0px 12px;
+}
+
+.article_left {
+    grid-area: left;
+}
+
+.article_right {
+    grid-area: right;
+}
+
+.notification-header_system {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background-color: rgba(149, 225, 149, 0.156);;
+}
+
+.notification--icon {
+    font-size: 16px;
+}
+
+.icon_warning {
+    color: rgb(255, 225, 0);
+}
+
+.icon_error {
+    color: rgb(255, 0, 0);
+}
+
+.icon_heart {
+    color: rgb(232, 96, 96);
+}

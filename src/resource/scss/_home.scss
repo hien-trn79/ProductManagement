@@ -1,0 +1,59 @@
+// ------- Product card --------
+@import './animation.scss';
+
+.product_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 24%));
+    column-gap:12px;
+    justify-content: center ;
+    row-gap: 24px;
+}
+
+.product-card {
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.card:hover {
+    animation: moveTop 0.1s linear forwards;
+    cursor: pointer;
+}
+
+.card:hover .product_name {
+    color: green;
+}
+
+.card-img {
+    width: 100%;
+}
+
+.product_name {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.9px;
+}
+
+.product-card_body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+    padding: 10px;
+}
+
+.product_description {
+    font-size: 1.3rem;
+    color: #666666;
+    padding-left: 8px;
+    text-align: left;
+}
+
+.product_price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: red;
+    letter-spacing: 0.9px;
+    text-align: right;
+}
+

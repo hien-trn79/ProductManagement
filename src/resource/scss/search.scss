@@ -1,0 +1,174 @@
+.search_overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #8887875f;
+    z-index: 100;
+}
+
+.search_modal {
+    
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 3px 3px 3px rgba(0,0,0, 0.08);
+    z-index: 110;
+    min-width: 50%;
+}
+
+.search-navbar {
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.search-navbar--link {
+    font-size: 1.5rem;
+    padding: 8px 12px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    color: #777;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-navbar--link.search_active {
+    background-color: rgba(149, 225, 149, 0.121);
+    border-bottom: 1px solid rgb(53, 98, 53);
+    color: $text_primary; 
+}
+
+.search-navbar--link:hover {
+    background-color: rgba(149, 225, 149, 0.121);
+    border-bottom: 1px solid rgb(53, 98, 53);
+    color: $text_primary; 
+}
+
+.search-main {
+    padding: 10px;
+}
+
+.search-list_task {
+    list-style: none;
+    padding: 0;
+}
+
+.search-list_items {
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+    padding: 4px 10px;
+}
+
+.search-list_items:hover {
+    cursor: pointer;
+    background-color: #cccccc2d;
+    border-radius: 5px;
+}
+
+.search-list_items-header {
+    height: 30px;
+    width: 30px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.search-icon_group {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 36px;
+}
+
+.search--icon {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    font-size: 1.6rem;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input {
+    font-size: 1.5rem;
+    padding: 6px 6px 6px 40px;
+}
+
+.search-list_items-img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0, 0.08);
+}
+
+.search-list_items-body {
+    flex: 1;
+    padding: 4px 12px;
+}
+
+.search-list_items--title {
+    font-size: 1.6rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.search-list_items--type {
+    color: $text_primary;
+    width: fit-content;
+    padding: 0px 12px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    background-color: rgba(149, 225, 149, 0.178);
+}
+
+.search-button {
+    padding-top: 16px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn_return, .btn_results {
+    background-color: white;
+    padding: 6px;
+    text-align: left;
+}
+
+.btn_return {
+    border: 1px solid #777;
+    font-size: 1.3rem;
+}
+
+.btn_results {
+    font-size: 1.3rem;
+    color: rgb(0, 140, 255);
+}
+
+.btn_results:hover {
+    color: rgb(0, 102, 255);
+}
+
+.search-btn--icon {
+    margin: 0px 8px;
+}
+
+// ---------CSS Search 3 People ------
+.search-user_name {
+    padding: 0px 24px;
+}
+
+.search-user_description {
+    font-size: 1.3rem;
+    color: #777;
+    padding: 0px 24px;
+}

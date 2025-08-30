@@ -1,0 +1,104 @@
+<div class="article-body">
+    <header class="article-header">
+        <a class="btn btn-back" href="/contact">
+            <i class="fa-solid fa-arrow-left back-icon"></i>
+            Back to Contacts
+        </a>
+        <div class="article-header_body">
+            <div class="contact-button">
+                <button class="btn btn_edit btn_contact">
+                    <i class="fa-regular fa-pen-to-square btn_contact-icon"></i>
+                    Edit Contact
+                </button>
+                <button class="btn btn_delete btn_contact">
+                    <i class="fa-regular fa-trash-can btn_contact-icon"></i>
+                    Delete
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="contact-body">
+        <div class="infor_staff-header">
+            <img src="{{ staff.img }}" alt="" class="info_staff-img">
+
+            <div class="info_person">
+                <h2 class="info_staff--name">{{  staff.name }}</h2>
+                <div class="info_staff--position"> {{ staff.position }} </div>
+            </div>
+
+            <div class="communication">
+                <button class="btn btn_addFavor btn_contact">
+                    <i class="fa-regular fa-star btn_contact-icon"></i>
+                    Add to Favorites
+                </button>
+                <a class="btn btn sendMessage btn_contact" href="/message/{{staff._id}}">
+                    <i class="fa-regular fa-message btn_contact-icon"></i>
+                    Send Message
+                </a>
+            </div>
+        </div>
+        <div class="info_staff-main">
+            <h2 class="title">
+                <i class="fa-solid fa-clipboard-list btn_contact-icon"></i>
+                Overview
+            </h2>
+
+
+            <div class="info_staff-body">
+                <h2 class="info_staff--title">Contact Infomation</h2>
+                <p class="info_staff--description">Basic infomation about the contact</p>
+
+                <div class="info_person-body">
+                    <div class="section_info">
+                        <ul class="info_list .info_list-1">
+                        <li class="info_items">
+                            <p class="info_staff--description">Email</p>
+                            <p class="info_items--content--1">
+                                <i class="fa-solid fa-envelope staff-icon"></i>
+                                {{ staff.email }}
+                            </p>
+                        </li>
+
+                        <li class="info_items">
+                            <p class="info_staff--description">Phone</p>
+                            <p class="info_items--content--1">
+                                <i class="fa-solid fa-phone staff-icon"></i>
+                                {{ staff.numberPhone }}
+                            </p>
+                        </li>
+                    </ul>
+
+                    <ul class="info_list info_list-2">
+                        <li class="info_items">
+                            <p class="info_staff--description">Education</p>
+                            <p class="info_items--content">
+                                <i class="fa-solid fa-building-user staff-icon"></i>
+                                {{ staff.education }}
+                            </p>
+                        </li>
+
+                        <li class="info_items">
+                            <p class="info_staff--description">Professional</p>
+                            <p class="info_items--content">
+                                <i class="fa-solid fa-suitcase staff-icon"></i>
+                                {{ staff.professional }}
+                            </p>
+                        </li>
+                    </ul>
+                    </div>
+
+                    <div class="section_info--plus">
+                        <p class="info_staff--description">Professional</p>
+                        <p class="info_professional info_content"> {{ staff.professional }} </p>
+                    </div>
+
+                    <div class="section_info--plus">
+                        <p class="info_staff--description">Introduce</p>
+                        <p class="info_introduce info_content"> {{ staff.introduce }} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

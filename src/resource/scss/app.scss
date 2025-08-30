@@ -1,0 +1,323 @@
+@import 'variables';
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css);
+@import './animation.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #333;
+}
+
+.btn {
+    padding: 5px 12px;
+    border: none;
+    border-radius: 7px;
+    background-color: #ccc;
+}
+
+.btn:hover {
+    transform: scale(1.002);
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: scale(0.99);
+}
+
+.page {
+    display: grid;
+    grid-template-areas: 'menu_bar main_article';
+    grid-template-columns: 1fr 5fr;
+}
+
+header {
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    height: 60px;
+    padding: 10px;
+}
+
+.menu_bar {
+    grid-area: menu_bar;
+    background-color: #fff;
+    border-right: 1px solid #ccc;
+    min-height: 100vh;
+    z-index: 11;
+}
+
+.header-logo {
+    border-radius: 10px;
+    border: 1px solid #333;
+    object-fit: cover;
+    height: 40px;
+    width: 40px;
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+}
+
+.name-page {
+    margin: 0px 10px;
+    font-size: $size_title;
+    color: #333;
+}
+
+// --------- CSS Menubar ---------
+.list_bar {
+    list-style: none;
+    padding: 12px;
+}
+
+.list_items {
+    margin-bottom: 8px;
+}
+
+.list_items:hover {
+    background-color: #cccccc38;
+    color: black;
+    border-radius: 7px;
+}
+
+.list_items--link {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #333;
+    display: block;
+    font-weight: 450;
+    padding: 6px 12px;
+    border-radius: 7px;
+}
+
+.list_items--link:hover {
+    background-color: #cccccc38;
+    color: black;
+}
+
+.list_items.active .list_items--link {
+    color: $text_primary;
+    font-weight: 600;
+    background-color: rgba(149, 225, 149, 0.371);
+}
+
+// -------CSS lastest message list ------
+.quick--message--link {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+}
+
+.user_avatar {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px rgba(0,0,0, 0.08);
+}
+
+.quick--message_body {
+    margin-left: 8px;
+    flex: 1;
+}
+
+.user_name {
+    font-size: $size_content;
+    font-weight: 500;
+}
+
+.quick--message-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 18px;
+}
+
+.quick--message_user {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.quick--message_time {
+    font-size: 1.2rem;
+    color: #717171;
+}
+
+.quick--message_status {
+    display: none;
+}
+
+.quick--message_status.received {
+    display: block;
+    height: 7px;
+    width: 7px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.quick--message_content {
+    font-size: 1.2rem;
+    color: #717171;
+    margin: 0;
+}
+
+.quick--message_all--link {
+    font-size: 1.3rem;
+    text-decoration: underline;
+    font-weight: 500;
+    color: #717171;
+}
+
+.main_arcticle {
+    grid-area: main_article;
+    display: grid;
+    grid-template-areas: 'article-header' 'article-body';
+    grid-template-columns: 60px auto;
+    gap: 10px;
+}
+
+
+// -----Header article ------
+// --------CSS home page -----
+.article-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 235px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-area: article-header;
+    z-index: 10;
+}
+
+.article-header_body {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.article-noti:hover {
+    cursor: pointer;
+}   
+
+.article-noti_icon {
+    position: relative;
+    font-size: 1.6rem;
+}
+
+.article-noti_status {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    height: 6px;
+    width: 6px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.btn_newProject {
+    font-size: 1.5rem;
+    background-color: green;
+    color: white;
+    padding: 6px 16px;
+    margin: 0px 12px;
+}
+
+.btn_newProject:hover {
+    color: white;
+}
+
+.article-body {
+    grid-area: article-body;
+    padding: 20px;  
+    margin-top: 70px;
+}
+
+
+// -----------CSS Modal ------------
+
+.myModal {
+    display: none;
+}
+
+.myOverlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #cccccc8a;
+    z-index: 1000;
+}
+
+.myModal-main {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background-color: white;
+    padding: 8px 8px 20px 20px;
+    border-radius: 7px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.08);
+    z-index: 1001;
+    min-width: 30%;
+}
+
+.myModal-header {
+    position: relative;
+    padding: 10px 0px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+.myModal-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: rgb(0, 106, 255);
+}
+
+.myModal-body {
+    height: 20%;
+}
+
+.myModal-description {
+    font-size: 1.6rem;
+    color: #333;
+    padding: 8px 0px;
+}
+
+.myModal-button {
+    text-align: right;
+}
+
+.modal-close {
+    font-size: 1.5rem;
+}
+
+.btn-remove {
+    font-size: 1.5rem;  
+    background-color: rgb(212, 55, 55);
+    color: white;
+}
+
+@import 'home';
+@import './product.scss';   
+@import './contact.scss';
+@import './notification.scss';
+@import './search.scss';
+@import './message.scss';

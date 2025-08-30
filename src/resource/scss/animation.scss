@@ -1,0 +1,11 @@
+@keyframes topLeft {
+    to {
+        transform: translate(5%, -2%);
+    }
+}
+
+@keyframes moveTop {
+    to {
+        transform: translateY(-2%);
+    }
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/app.css">
+    <title>HT Store</title>
+</head>
+
+<body class="page container-fluid bg-light">
+    {{>menuBar}}
+
+    <div class="main_article">
+        {{{body}}}
+    </div>
+
+    <div id="search-modal">
+    </div>
+
+</body>
+
+<style>
+    button {
+        border: none;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+        crossorigin="anonymous">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    const searchModal = $('#search-modal');
+    const searchBtn = $('#search');
+    const menuNavbar = document.querySelector('.menu-navbar');
+    let currentPage = "{{ currentPath }}";
+    const iconNoti = $('.article-noti');
+
+    const rootURL = ['/', '/product', '/contact', '/notification'];
+    // cap nhat url cho cac url con
+    rootURL.forEach(function(url) {
+        if(currentPage.includes(url) && url != '/') {
+            currentPage = url;
+            return;
+        }
+    })
+
+    // Xu ly modal
+    const dataModal = function(data) {
+    return  `
+    <div class="search_modal">
+        <div class="search-header">
+            <div class="input-group">
+                <div class="search-icon_group"><i class="fa-solid fa-magnifying-glass search--icon"></i></div>
+                <input type="text" class="form-control search-input" placeholder="Search here.....">
+            </div>
+            <nav class="search-navbar">
+                <button class="search-navbar--link" id="searchPage_1">
+                    <i class="fa-solid fa-list-check search-navbar--icon"></i>
+                    Tasks
+                </button>
+                <button class="search-navbar--link" id="searchPage_2">
+                    <i class="fa-solid fa-file search-navbar--icon"></i>
+                    Projects
+                </button>
+                <button class="search-navbar--link" id="searchPage_3">
+                    <i class="fa-solid fa-user-group search-navbar--icon"></i>
+                    People
+                </button>
+            </nav>
+        </div>
+        <div class="search-main">
+            ${data}
+        </div>
+        <div class="search-button">
+            <button class="btn btn_return" onclick="closeModal()">
+                <i class="fa-solid fa-xmark search-btn--icon"></i>
+                Return
+            </button>
+            <a href="#" class="btn btn_results">
+                To View All Results
+                <i class="fa-solid fa-arrow-right search-btn--icon"></i>
+            </a>
+        </div>
+    </div>
+    <div class="search_overlay" onclick="closeModal()"></div>
+    `
+    }
+
+    // data search page 1 (tasks)
+    const dataPage = {
+        searchPage_1: {
+            data:  `
+            <ul class="search-list_task">
+                <li class="search-list_items">
+                    <div class="search-list_items-header">
+                        <img class="search-list_items-img" src="/imgs/img_meeting.jpg"></img>
+                    </div>
+                    <div class="search-list_items-body">
+                        <h3 class="search-list_items--title">Meeting with partners</h3>
+                        <p class="search-list_items--type">Works</p>
+                    </div>
+                </li>
+                <li class="search-list_items">
+                    <div class="search-list_items-header">
+                        <img class="search-list_items-img" src="/imgs/img_meeting.jpg"></img>
+                    </div>
+                    <div class="search-list_items-body">
+                        <h3 class="search-list_items--title">Meeting with partners</h3>
+                        <p class="search-list_items--type">Works</p>
+                    </div>
+                </li>
+                <li class="search-list_items">
+                    <div class="search-list_items-header">
+                        <img class="search-list_items-img" src="/imgs/img_meeting.jpg"></img>
+                    </div>
+                    <div class="search-list_items-body">
+                        <h3 class="search-list_items--title">Meeting with partners</h3>
+                        <p class="search-list_items--type">Works</p>
+                    </div>
+                </li>
+                <li class="search-list_items">
+                    <div class="search-list_items-header">
+                        <img class="search-list_items-img" src="/imgs/notebook_img.jpg"></img>
+                    </div>
+                    <div class="search-list_items-body">
+                        <h3 class="search-list_items--title">Prepare contract</h3>
+                        <p class="search-list_items--type">Works</p>
+                    </div>
+                </li>
+            </ul>
+            `
+        },
+
+        searchPage_2: {
+            data: `
+            <ul class="search-list_task">
+                <li class="search-list_items">
+                    <div class="search-list_items-header">
+                        <img class="search-list_items-img" src="/imgs/idea.jpg"></img>
+                    </div>
+                    <div class="search-list_items-body">
+                        <h3 class="search-list_items--title">Combine KOLs to promote products</h3>
+                        <p class="search-list_items--type">In process</p>
+                    </div>
+                </li>
+                <li class="search-list_items">
+                    <div class="search-list_items-header">
+                        <img class="search-list_items-img" src="/imgs/instant.jpg"></img>
+                    </div>
+                    <div class="search-list_items-body">
+                        <h3 class="search-list_items--title">Building a global electronic communication channel</h3>
+                        <p class="search-list_items--type">Future</p>
+                    </div>
+                </li>
+                <li class="search-list_items">
+                    <div class="search-list_items-header">
+                        <img class="search-list_items-img" src="/imgs/img_meeting.jpg"></img>
+                    </div>
+                    <div class="search-list_items-body">
+                        <h3 class="search-list_items--title">Changing Marketing Campaigns in the New Eras</h3>
+                        <p class="search-list_items--type">Completed</p>
+                    </div>
+                </li>
+                <li class="search-list_items">
+                    <div class="search-list_items-header">
+                        <img class="search-list_items-img" src="/imgs/notebook_img.jpg"></img>
+                    </div>
+                    <div class="search-list_items-body">
+                        <h3 class="search-list_items--title">Research on consumer market in Ho Chi Minh City</h3>
+                        <p class="search-list_items--type">Planning</p>
+                    </div>
+                </li>
+            </ul>
+            `
+        },
+
+        searchPage_3: {
+            data: `
+            <ul class="search-list_task">
+                <li class="search-list_items">
+                    <div class="search-list_items-header">
+                        <img class="user_avatar" src="/imgs/instant.jpg"></img>
+                    </div>
+                    <div class="search-list_items-body">
+                        <h3 class="search-user_name">Anna Maria</h3>
+                        <p class="message-description search-user_description">Customer Service</p>
+                    </div>
+                </li>
+                <li class="search-list_items">
+                    <div class="search-list_items-header">
+                        <img class="user_avatar" src="/imgs/instant.jpg"></img>
+                    </div>
+                    <div class="search-list_items-body">
+                        <h3 class="search-user_name">Jessica Park</h3>
+                        <p class="message-description search-user_description">Sale Agent</p>
+                    </div>
+                </li>
+                <li class="search-list_items">
+                    <div class="search-list_items-header">
+                        <img class="user_avatar" src="/imgs/instant.jpg"></img>
+                    </div>
+                    <div class="search-list_items-body">
+                        <h3 class="search-user_name">Michael Belt</h3>
+                        <p class="message-description search-user_description">Manager Warehouse</p>
+                    </div>
+                </li>
+            </ul>
+            `
+        }
+
+    }
+    const dataPage_task = `
+        
+    `
+
+    function closeModal() {
+        searchModal.empty()
+    }
+
+    // Show modal
+    let search_page;
+    searchBtn.click(function(e) {
+        e.preventDefault();
+        const data = dataModal("");
+        searchModal.append(data);
+        const searchNav_link = $('.search-navbar--link');
+        searchNav_link.click(function() {
+            const navItem = this;
+            // Xu ly navbar (search)
+            const active = $('.search_active');
+            if(active) active.toggleClass('search_active')
+            navItem.classList.add('search_active')
+            const searchMain = $('.search-main')
+            searchMain.empty();
+            searchMain.append(dataPage[navItem.id].data)
+        })
+    })
+    
+    // Xu ly navbar (Main page)
+    const linkPage = $(`[href="${currentPage}"]`);
+    linkPage.parent().toggleClass('active');
+
+    // Chuyen tab cho icon thong bao
+    iconNoti.click(function() {
+        location.href = '/notification'
+    })
+    
+</script>
+
+</html>

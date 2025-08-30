@@ -1,0 +1,35 @@
+<div class="article-body">
+    <header class="article-header">
+        <h3 class="name-page">Home</h3>
+        <div class="article-header_body">
+            <div class="article-noti">
+                <i class="fa-regular fa-bell icon article-noti_icon">
+                    <div class="article-noti_status"></div>
+                </i>
+            </div>
+            <a class="btn btn_newProject" href="/product/create">
+                <i class="fa-solid fa-plus icon"></i>
+                New Product
+            </a>
+            <img class="user_avatar" src="/imgs/userAvatar/user1.gif"></img>
+        </div>
+    </header>
+    
+    <div class="section_article">
+        <h2 class="article_title">Products hot <i class="fa-solid fa-fire" style="color: rgb(243, 96, 4);"></i></h2>
+        <div class="mt-4">
+            <div class="row product_list">
+                {{#each products}}
+                <a class="card product-card" href="product/{{name}}">
+                    <img src="{{img}}" alt="" class="card-img">
+                    <div class="product-card_body">
+                        <h2 class="product_name">{{name}}</h2>
+                        <p class="product_description">{{description}}</p>
+                        <p class="product_price">{{price}}</p>
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

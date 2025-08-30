@@ -1,0 +1,58 @@
+<div class="article-body">
+    <header class="article-header">
+        <h3 class="name-page">Product</h3>
+        <div class="article-header_body">
+            <div class="article-noti">
+                <i class="fa-regular fa-bell icon article-noti_icon">
+                    <div class="article-noti_status"></div>
+                </i>
+            </div>
+            <a class="btn btn_newProject" href="/product/create">
+                <i class="fa-solid fa-plus icon"></i>
+                New Product
+            </a>
+            <img class="user_avatar" src="/imgs/userAvatar/user1.gif"></img>
+        </div>
+    </header>
+
+    <div class="show_product">
+        <h2 class="show-product_name">{{product.name}}</h2>
+        <div class="show_product-body">
+            <article class="show-product_info">
+                <img src="{{product.img}}" alt="" class="show_product-img">
+                <div class="show-product_content mt-4">
+                    {{product.description}}
+                </div>
+            </article>
+            <aside class="product_detail">
+                <div class="aside_hot">
+                    <h2 class="aside_hot-content">
+                        <i class="fa-solid fa-fire-flame-curved hot_icon"></i>
+                        Online Super Sale
+                    </h2>
+                    <h2 class="show-product_price">{{product.price}}</h2>
+                </div>
+                <div class="product_buy-button mt-4">
+                    <a href="#" class="btn btn-add_cart">
+                        <i class="fa-solid fa-cart-plus icon"></i>
+                        Add cart
+                    </a>
+                    <a href="#" class="btn btn_buy">Buy</a>
+                </div>
+                <div class="promotion mt-4">
+                    <h2 class="promotion_title">
+                        <i class="fa-solid fa-gift icon promotion-icon"></i>
+                        Khuyến mãi hấp dẫn
+                    </h2>
+                    <ol class="promotion_list">
+                        <li class="promotion_item">Giảm ngay 500.000đ khi thanh toán qua thẻ tín dụng.</li>
+                        <li class="promotion_item">Tặng phiếu mua hàng điện tử trị giá 300.000đ.</li>
+                        <li class="promotion_item">Nhận ngay 200.000đ hoàn tiền khi mở thẻ tín dụng TPBank EVO và chi tiêu từ 1 triệu đồng.
+                            <a href="#" class="promotion_expert">(Xem thêm chi tiết tại đây.)</a>
+                        </li>
+                    </ol>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>

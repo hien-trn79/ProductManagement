@@ -1,0 +1,373 @@
+p {
+    margin: 0;
+}
+
+// ---------CSS product---------
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    column-gap: 20px;
+    row-gap: 24px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.summary_card {
+    background-color: white;
+    border-radius: 5px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    min-height: 150px;
+    box-shadow: 1px 1px 3px rgba(0,0,0, 0.08);
+}
+
+.summary_card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+}
+
+.summary_card--icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 45px;
+    background-color: $hover_background;
+    border-radius: 50%;
+    color: green;
+}
+
+.summary--icon {
+    font-size: 1.8rem;
+}
+
+.summary_card-body {
+    height: 60%;
+    padding: 10px;
+}
+
+.summary_card--title {
+    font-size: 1.4rem;
+    color: #777;
+}
+
+.summary_card--quantity {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 30px;
+    padding: 4px 0px;
+}
+
+.summary_card--time {
+    font-size: 1.1rem;
+    color: #575757;
+    font-weight: 350;
+    padding: 4px 0px;
+}
+
+// -------Product manage (database) ---------
+.product_manage {
+    padding: 12px;
+}
+
+.product_article-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.summary_title {
+    color: #575757;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.show_all_products {
+    font-size: 1.4rem;
+    width: fit-content;
+    padding: 2px;
+    border-bottom: 1px solid #333;
+    color: #333;
+    font-weight: 500;
+}
+
+.show_all_products:hover {
+    color: $text_primary;
+    cursor: pointer;
+    border-color: $text_primary;
+}
+
+.list_products {
+    list-style: none;
+}
+
+.product_item {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 2px 2px 2px rgba(0,0,0, 0.08);
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+}
+
+.product_item:hover .product_link{
+    color: $text_primary;
+}
+
+.product_info {
+    display: flex;
+    align-items: center;
+}
+
+.product_link {
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product_name {
+    font-size: 1.5rem;
+    letter-spacing: 0.9px;
+    font-weight: 650;
+    padding: 0px 8px;
+}
+
+.product_description {
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.product_debut {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #333;
+}
+
+.product_button {
+    padding: 0px 10px;
+}
+
+.btn {
+    font-size: 1.4rem;
+}
+
+.btn:active {
+    transform: scale(0.98);
+    border: none;
+}
+
+.product_update {
+    background-color: $hover_background;
+    box-shadow: 1px 1px rgba(22, 132, 22, 0.838);
+    margin-right: 8px;
+}
+
+.product_remove {
+    background-color: rgba(227, 41, 41, 0.827);
+    box-shadow:1px 1px rgb(173, 7, 7);
+    color: white;
+}
+
+// --------CSS edit san pham ---------
+
+.form-label, .form-control {
+    font-size: $size_content;
+}
+
+.form-label {
+    font-weight: 600;
+    padding: 5px;
+}
+
+.form-control {
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-submit {
+    color: white;
+    background-color: green;
+    font-size: 1.5rem;
+    width: 120px;
+}
+
+.btn-submit:hover {
+    color: white;
+}
+
+// --------CSS Show product -----
+.show_product-body {
+    display: grid;
+    grid-template-areas: 'product_info product_detail';
+    grid-template-columns: 4fr 2fr;
+    column-gap: 16px;
+}
+
+.show-product_name {
+    font-size: 2.2rem;
+    letter-spacing: 0.9px;
+    margin-bottom: 12px;
+}
+
+.show-product_info {
+    grid-area: product_info;
+    border-radius: 5px;
+    background-color: white;
+    padding: 16px;
+}
+
+.show_product-img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.show-product_content {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+}
+
+.product_detail {
+    grid-area: product_detail;
+    border-radius: 5px;
+    background-color: white;
+    padding: 16px;
+}
+
+.aside_hot {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    background: url('/imgs/background_sale_hot.png') center no-repeat;
+}
+
+.aside_hot-content {
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.9px;
+    color: white;
+}
+
+.hot_icon {
+    color: rgb(255, 157, 0);
+}
+
+.show-product_price {
+    color: rgb(255, 233, 39);
+    font-size: 1.8rem;
+    letter-spacing: 0.9px;
+    padding: 4px 8px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.product_buy-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.btn {
+    min-width: 120px;
+    padding: 6px 24px;
+}
+
+.btn-add_cart {
+    font-size: 1.6rem;
+    color: $text_primary;
+    background-color: $hover_background;
+    border: 1px solid $text_primary;
+}
+
+.btn_buy {
+    font-size: 1.6rem;
+    color: white;
+    background-color: rgba(11, 82, 224, 0.901);
+}
+
+.btn_buy:hover {color: white;}
+
+.promotion {
+    padding: 24px 0px 24px 24px;
+    border-radius: 7px;
+    border: 2px solid green;
+    background: linear-gradient(to right, rgb(255, 255, 255), $hover_background);
+}
+
+.promotion_tilte {
+    margin: 10px 0px;
+}
+
+.promotion-icon {
+    color: rgb(255, 149, 0);
+}
+
+.promotion_list {
+    padding: 10px;
+    margin-left: 12px;
+}
+
+.promotion_item {
+    font-size: 1.5rem;
+    padding: 4px 0px;
+    line-height: 1.8rem;
+    margin: 8px 0px;
+}
+
+.promotion_expert {
+    color: rgb(0, 106, 255);
+    text-decoration: underline;
+    font-size: 1.2rem;
+}
+
+// -------TrashBin --------
+.trashBin_content {
+    font-size: 1.5rem;
+    padding: 6px 12px;
+    width: fit-content;
+    border-bottom: 1px solid #333;
+}
+
+.trashBin-icon {
+    font-size: 1.6rem;
+    margin-right: 5px;
+}
+
+.trashBin_content:hover {
+    cursor: pointer;
+    color: $text_primary;
+    font-weight: 500;
+}
+
+// --------CSS product deleted-------
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40%;
+
+}
+
+.checkbox-label {
+    font-size: 1.5rem;
+}
+
+.interact-items {
+    font-size: 1.5rem;
+    padding: 4px 12px;
+    text-decoration: underline;
+    color: #333;
+}
+
+.interact-items:hover {
+    cursor: pointer;
+    color: $text_primary;
+    font-weight: 400;
+}
